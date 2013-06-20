@@ -1,0 +1,29 @@
+.deal-detail a {
+	display: inline !important;;
+}
+
+.deal-detail {
+/* 		float: left; */
+	padding:0 !important;
+}
+
+.info-summary {
+	min-height: 0;
+}
+
+.deal-details {
+	min-height: 77px;
+	padding:10px 10px 0px;
+}
+
+.btn-save, .btn-cancel {
+	font-size: 14px;
+}
+
+.app-container {
+	min-width:860px !important;
+}
+
+#header {
+	min-width:860px !important;
+}

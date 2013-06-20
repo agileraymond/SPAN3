@@ -1,0 +1,21 @@
+
+#adp {
+	zoom:1; 
+	*display: inline; 
+	_height: 14px;
+}
+
+#adp-go-btn {
+	zoom:1; 
+	*display: inline; 
+	_height: 18px;
+}
+
+#gap .right span a, #gap .right span h2 {
+	zoom:1; 
+	*display: inline; 
+}
+
+.header-info-box div {
+	zoom:1; *display: inline;
+}

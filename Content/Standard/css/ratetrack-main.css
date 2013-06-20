@@ -70,7 +70,7 @@ td a{
 
 #header {  
 	z-index: 90;
-	background: #042862;
+	background: #2B2B2B;
 }
 .content-container {
 	padding-top:80px;
@@ -110,7 +110,7 @@ td a{
 	padding: 10px 10px;
 	height: 100%;
 	display: block;
-	background: #042862;
+	background: #2b2b2b;
 	position: absolute;
 	margin-top:30px;
 	right:-274px;
@@ -154,7 +154,7 @@ td a{
 	padding: 12px 0;
 	color:#FFF;
 	font-size:18px;
-	background:#0092EA;
+	background:#00cc34;
 	border-radius:4px;
 	margin-top:20px;
 	display: inline-block;
@@ -170,21 +170,22 @@ td a{
 	margin-top:20px;
 	display: inline-block;
 	vertical-align: middle;
-	background:#2A406D;
+	background:#484848;
 	width:100%;
 }
 
 .btn-save:hover, .btn-cancel:hover {
 	text-decoration: none;
-	color:#CCC;
 }
 
 .btn-save:hover {
-	background:#21B0FF;
+	background:#66fc8c;
+	color:#00360d;
 }
 
 .btn-cancel:hover {
-	background:#344F9C;
+	background:#999999;
+	color:#1c1c1c;
 }
 
 .info-summary span {
@@ -304,7 +305,7 @@ td a{
 /*--------------------- DEAL DETAILS */
 
 .deal-details {
-	background:#2A406D;
+	background:#333333;
 	display: inline-block;
 	min-height: 77px;
 	padding:10px 10px 0px;
@@ -492,8 +493,8 @@ td a{
 	padding-right:0 !important;
 }
 #header-bar #logo {
-	/*background-image:url(../images/span3_logo.png);*/
-	background-image:url('../images/zurich_logo.png'); 
+
+	background-image:url(../images/span3_logo.png);
 	background-position:center;
 	background-repeat:no-repeat;
 	padding:0 !important;
@@ -551,7 +552,7 @@ td a{
 
 .left {
 	padding:10px;
-	background: #042862;
+	background: #2e2e2e;
 	height: 100%;
 }
 
@@ -738,12 +739,12 @@ td a{
 	color:#efefef;
 	position: relative;
 	display: block;
-	background: #042862;
+	background: #2f2f2f;
 	text-align: left;
 }
 .product-header:hover {
 	text-decoration: none;
-	background: #203794;
+	background: #3f3f3f;
 }
 .product-closed {
 	background-position: 8px 7px !important;
@@ -795,9 +796,6 @@ td a{
 }
 .table-right table {
 	width:100%;
-}
-.table-header-miles, .table-header-months{
-	font-size: 16px;
 }
 .table-header-miles {
 	text-align: center;
@@ -854,7 +852,7 @@ td a{
 /* .rates-table td {border:#999 dashed 1px;} */
 
 
-.y-label, th {font-size: 16px;}
+.y-label, th {font-size: 14px;}
 .y-label {
 	border:none !important; 
 	/* border-right: 1px solid #C5C5CA !important; */ 
@@ -974,8 +972,8 @@ padding-top:12px !important;
 .quote-to-save {
 	margin-bottom:6px;
 	padding:10px;
-	background:#021136;
-	border-left:8px solid #072B88;
+	background:#343435;
+	border-left:8px solid #f68f55;
 }
 
 .quote-to-save-price {
@@ -1060,7 +1058,7 @@ padding-top:12px !important;
 	overflow-y: auto;
 	transition: right 0.2s ease;
 	right:0;
-	background: #385591;
+	
 }
 
 .total-box .total-amount {
@@ -1178,7 +1176,7 @@ padding-top:12px !important;
 	font-size: 16px;
 	text-indent: -999999px;
 	overflow: hidden;
-	background: #385591 url(../images/quote-summary-button.png) no-repeat top left;
+	background: #5b5b5b url(../images/quote-summary-button.png) no-repeat top left;
 	border-right: #484848 solid 1px;
 	width:46px;
 	height:144px;
@@ -1443,7 +1441,4 @@ html[xmlns] .clearfix {
 	font-family: 'Nexa Regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 16px;
 	border-bottom: none;
-}
-.span3.product-section{
-	background-color:#3A4F8B;
 }
