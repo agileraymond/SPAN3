@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panels - Create Quotes</title>
+       <link href="Content/Zurich/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="Content/Zurich/css/ratetrack-main-panels.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+    <link href="Content/Zurich/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Content/Zurich/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"
+        type="text/javascript"></script>
+    <script type="text/javascript" src="Scripts/Zurich/jquery.formatCurrency-1.4.0.min.js"></script>
+    <script type="text/javascript" src="file://localhost/Users/kevin/Desktop/SPAN3/Scripts/jquery.animate-colors-min.js"></script>
+    <script type="text/javascript" src="Scripts/Zurich/quoteSummary.js"></script>    
+
+    <!--[if lt IE 8]>
+		<link href="Content/Zurich/css/ratetrack-main-ie8.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+    
+    
+
+    <script src="Scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="//use.typekit.net/wvf6ddz.js"></script>
+    <script type="text/javascript">
+        try {
+            Typekit.load({
+                loading: function () {
+                    // JavaScript to execute when fonts start loading
+                },
+                active: function () {
+                    // JavaScript to execute when fonts become active
+                    /* 			        $('.loader').css('display', 'none'); */
+                },
+                inactive: function () {
+                    // JavaScript to execute when fonts become inactive
+                }
+            })
+        } catch (e) { }
+		</script>
+</head>
+<body>
+    <div class="quote-saved-popup-container">
+        <div class="popup quote-saved-popup">
+            <div class="popup-content">
+                 Quote was saved successfully <span class="popup-saved-quotes">
+                    </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="app-container">
+<!--         <section id="main"> -->
+               <script type="text/javascript" src="file://localhost/Users/kevin/Desktop/SPAN3/Scripts/Zurich/ratetrack.js"></script>
+<script src="/Scripts/Zurich/base.js" type="text/javascript"></script>
+<div class="container-fluid header-container">
+	<div id="header" class="row-fluid navbar-fixed-top">
+	    <div id="header-bar" class="span12">
+	    <div class="row-fluid">
+		    <div id="logo" class="span2"></div>
+		    <div id="btnSaveQuote" class="span3">
+		    <div class="container-fluid">
+		    	<div class="row-fluid">
+					<div class="span6">		    	
+		        	<a class="btn-save" href="#">Save</a>  
+					</div>
+					<div class="span6">      
+		            <a class="btn-cancel" href="#">Cancel</a>
+					</div>
+		    	</div>
+		    </div>
+			</div>
+		   </div>
+	    </div>
+	</div>
+</div>
+<div class="container-fluid content-container">
+	<div id="quote" class="page row-fluid">
+    <div class="products span9">
+    	<div class="save-msg"></div>
+        <div class="product row-fluid" id="divContainerVSC">
+        <div class="row-fluid">
+        	<div class="span12">
+        		<a class="product-closed product-header" id="vsc-header" href="#">VSC<span class="loader"><img src="Content/Zurich/images/circle-loader.gif" alt="loader"/></span></a>
+        	</div>
+        </div>
+        <div class="row-fluid">
+		    <div id="VSC-options-column" class="product-section left span3">
+		        <div class="product-input">
+		            <label>
+		                Product</label>
+		            <select id="selectVscProduct" class="orange-highlight">
+		            </select>
+		        </div>       
+		        <div id="divLimitedWarranty" class="product-input">
+		            <label>
+		            Is Upgrade? <input type="checkbox" id="chkIsUpgrade" value="isUpgrade" />
+		            </label>            
+		            <select id="selectLwUpgradeProduct" class="orange-highlight">
+		
+		            </select>
+		                          
+		        </div>
+		        <div class="product-input">
+		            <label>
+		                Coverage</label>
+		            <select id="selectCoverageVSC" class="orange-highlight">
+		            </select>
+		        </div>
+		        <div class="product-input">
+		            <label>
+		                Deductible</label>
+		            <select id="selectDeductibleVSC" class="orange-highlight">
+		            </select>
+		        </div>
+		    </div>
+	    <div class="product-section right span9">
+	        <input type="hidden" class="SavedRateUniqueId" />
+	        <a href="#" class="displayNone" id="linkVscNew">New</a> <a href="#" class="displayNone" id="linkVscUsed">Used</a>
+	        <div class="row-fluid table-header-miles">
+	        	Miles
+	        </div>
+	        <div class="row-fluid">
+	        	<div class="table-header-months">
+	        		Months
+	        	</div>
+		        <div class="table-left span1">
+					<table class="side-labels">
+					  <tr></tr>
+					  <tr><td class="y-label">36</td></tr>
+					  <tr><td class="y-label">36</td></tr>
+					  <tr><td class="y-label">36</td></tr>
+					  <tr><td class="y-label">36</td></tr>
+					  <tr><td class="y-label">36</td></tr>
+					  <tr><td class="y-label">36</td></tr>
+					  <tr><td class="y-label">36</td></tr>
+					  <tr><td class="y-label">36</td></tr>
+					  <tr><td class="y-label">36</td></tr>
+					</table>
+				</div>
+				<div class="table-right span10">
+					<table id="months-vs-miles-table" class="top-labels rates-table">
+					  <tr class="mile-numbers-vsc">
+					    <th>36<span class="grey-text">k</span></th>
+					    <th>50<span class="grey-text">k</span></th>
+					    <th>60<span class="grey-text">k</span></th>
+					    <th>75<span class="grey-text">k</span></th>
+					    <th>100<span class="grey-text">k</span></th>
+					    <th>120<span class="grey-text">k</span></th>
+					    <th>125<span class="grey-text">k</span></th>
+					    <th>36<span class="grey-text">k</span></th>
+					    <th>50<span class="grey-text">k</span></th>
+					    <th>60<span class="grey-text">k</span></th>
+					    <th>75<span class="grey-text">k</span></th>
+					    <th>100<span class="grey-text">k</span></th>
+					    <th>120<span class="grey-text">k</span></th>
+					    <th>125<span class="grey-text">k</span></th>
+					  </tr>
+					  <tr>
+					    <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					  <tr>
+					    <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					  <tr>
+					    <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					  <tr>
+					    <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					  <tr>
+					    <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					  <tr>
+					    <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					  <tr>
+					    <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					  <tr>
+					    <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					  <tr>
+					    <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					</table>
+				</div>
+				<div class="span1">&nbsp;</div>
+	        </div>
+	        <div id="VscMessages">
+	            <ul id="ulVscMessages">
+	                
+	            </ul>
+	        </div>
+	    </div>
+	    <div id="divVscMasterContainer" class="displayNone">
+	    </div>
+	    <div id="divVscTemplate" class="displayNone">
+	        <input type="text" class="IsInserviceRequired" />
+	        <input type="text" class="IsNewCoverage" />
+	        <input type="text" class="PartnerSpecificFields" />
+	        <select class="selectTerm orange-highlight"></select>
+	        <select class="selectVscCoverage orange-highlight">
+	        </select>
+	        <select class="selectVscDeductible orange-highlight">        
+	        </select>
+	        <input type="text" class="InternalProductVersionId" />
+	        <input type="text" class="ApplicationCode" />
+	    </div>
+    </div>
+</div>
+
+        <div class="product row-fluid" id="divContainerMAINTENANCE">
+        <div class="row-fluid">
+        	<div class="span12">
+        		<a class="product-closed product-header" id="maintenance-header" href="#">Maintenance</a>
+        	</div>
+        </div>
+        <div class="row-fluid">
+		    <div class="product-section left span3">
+		         <div class="product-input">
+            <label>
+                Coverage</label>
+            <select id="selectTWCoverages" class="purple-highlight">
+            </select>
+        </div>
+        <div class="input-group input-group-vert">
+            <label>Run Flat Tire?</label>
+            <div class="yes-no-choice">
+	            <span class="radioTWYes">
+	                <input type="radio" id="radioTWYes" value="1" name="rdoRunFlat" />
+	                <div class="radio-label-yes">Yes</div>
+	            </span>
+	            <span class="radioTWNo">
+	                <input type="radio" id="radioTWNo" value="0" name="rdoRunFlat" checked/>
+	                <div class="radio-label-no">No</div>
+	            </span>
+        	</div>
+        </div>
+		    </div>
+
+	    <div class="product-section right span9">
+
+	        <input type="hidden" class="SavedRateUniqueId" />
+	        <a href="#" class="displayNone" id="linkVscNew">New</a> <a href="#" class="displayNone" id="linkVscUsed">Used</a>
+	        <div class="row-fluid table-header-miles">
+	        	Miles
+	        </div>
+	        <div class="row-fluid">
+				<div class="table-right span11">
+					<table class="top-labels rates-table">
+					  <tr class="mile-numbers-maintenance">
+					    <th>36<span class="grey-text">k</span></th>
+					    <th>50<span class="grey-text">k</span></th>
+					    <th>60<span class="grey-text">k</span></th>
+					    <th>75<span class="grey-text">k</span></th>
+					    <th>100<span class="grey-text">k</span></th>
+					    <th>120<span class="grey-text">k</span></th>
+					    <th>125<span class="grey-text">k</span></th>
+					    <th>36<span class="grey-text">k</span></th>
+					    <th>50<span class="grey-text">k</span></th>
+					    <th>60<span class="grey-text">k</span></th>
+					    <th>75<span class="grey-text">k</span></th>
+					    <th>100<span class="grey-text">k</span></th>
+					    <th>120<span class="grey-text">k</span></th>
+					    <th>125<span class="grey-text">k</span></th>
+					  </tr>
+					  <tr>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					     <td><a id="23_48/60000" href="#">1,588</a></td>
+					  </tr>
+					</table>
+				</div>
+				<div class="span1">&nbsp;</div>
+	        </div>
+	        <div id="VscMessages">
+	            <ul id="ulVscMessages">
+	                
+	            </ul>
+	        </div>
+	    </div>
+	    <div id="divVscMasterContainer" class="displayNone">
+	    </div>
+	    <div id="divVscTemplate" class="displayNone">
+	        <input type="text" class="IsInserviceRequired" />
+	        <input type="text" class="IsNewCoverage" />
+	        <input type="text" class="PartnerSpecificFields" />
+	        <select class="selectTerm"></select>
+	        <select class="selectVscCoverage">
+	        </select>
+	        <select class="selectVscDeductible">        
+	        </select>
+	        <input type="text" class="InternalProductVersionId" />
+	        <input type="text" class="ApplicationCode" />
+	    </div>
+    </div>
+</div>
+
+       <!--
+ <div class="product clearfix" id="divContainerMAINTENANCE">
+    <a href="#" id="maintenance-header" class="product-closed product-header">Maintenance</a>
+    <div class="product-section left">
+        <div class="product-input">
+            <label>
+                Service Type</label>
+            <select id="selectCoverageMAINTENANCE">
+            </select>
+        </div>
+        <div class="product-input">
+            <label>
+                Service Interval</label>
+            <select id="selectIntervalMAINTENANCE">
+            </select>
+        </div>
+    </div>
+    <div class="product-section right">
+        <input id="MaintSavedRateUniqueId" type="hidden" class="SavedRateUniqueId" />
+        <input id="MaintInternalTermId" type="hidden" class="InternalTermId" />
+        <table id="tableRatesMAINTENANCE" class="rates-table" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr id="rowHeadingMAINTENANCE">
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="rowRetailPriceMAINTENANCE">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+-->
+
+      <!--
+  <div class="product clearfix" id="divContainerTireWheel">
+    <a href="#" id="tire-and-wheel-header" class="product-closed product-header">Tire &#38; Wheel</a>
+    <div class="product-section left">
+    
+        <div class="product-input">
+            <label>
+                Coverage</label>
+            <select id="selectTWCoverages">
+            </select>
+        </div>
+        <div class="input-group input-group-vert">
+            <label>Run Flat Tire?</label>
+            <span>
+                <input type="radio" id="radioTWYes" value="1" name="rdoRunFlat" />Yes
+            </span>
+            <span>
+                <input type="radio" id="radioTWNo" value="0" name="rdoRunFlat" checked="checked" />No
+            </span>
+        </div>
+    </div>
+    <div class="product-section right">
+        <table id="tableRatesTW" class="rates-table" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr id="rowHeadingTW">
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="rowRetailPriceTW">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+-->
+
+      <!--
+  <div class="product clearfix" id="divContainerGap">
+    <a href="#" id="gap-header" class="product-closed product-header">Gap</a>
+    <div id="divGapWarningContainer" class="warning-container">
+        <p>
+            In order to quote GAP, the following rmation is required:</p>
+        <ul id="gapRequiredFields" class="missing-info-links">
+            <li><a>Amount Financed</a></li>
+            <li><a>Term</a></li>
+            <li><a>APR</a></li>
+        </ul>
+    </div>
+    <div class="product-section right">
+        <table id="tableRatesGAP" class="rates-table" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="y-label">
+                    <a id="gapSaleType" href="#"></a>
+                </td>
+                <td id="rowRetailPriceGAP">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+-->
+
+       <!--
+ <div class="product clearfix" id="divContainerSecurityGuard">
+    <a href="#" id="securityguard-header" class="product-closed product-header">Security Guard</a>
+    <div class="product-section left">
+        <div class="product-input">
+            <label>
+                Term/Benefit</label>
+            <select id="selectCoverageSG">
+            </select>
+        </div>
+    </div>
+    <div class="product-section right">
+        <table class="rates-table" cellpadding="0" cellspacing="0">
+            
+            <tr>
+                <th></th>
+                <th id="rowHeadingSG"></th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td class="y-label">                    
+                    </td>
+                    <td id="rowRetailPriceSG">
+                    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+-->
+
+       <!--
+ <div class="product clearfix" id="divContainerLWENG">
+    <a href="#" id="lwengine-header" class="product-closed product-header">LW Lifetime Engine</a>
+    <div class="product-section left">
+        <div class="product-input">
+            <label>
+                LW Coverage</label>
+            <select id="selectCoverageLWENG">
+            </select>
+        </div>
+        <div class="product-input">
+            <label>
+                Deductible</label>
+            <select id="selectDeductibleLWENG">
+            </select>
+        </div>        
+    </div>
+    <div class="product-section right">
+        <table id="tableRatesLWENG" class="rates-table" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr id="rowHeadingLWENG">
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="rowRetailPriceLWENG">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+-->
+
+       <!--
+ <div class="product clearfix" id="divContainerComplimentary">
+    <a href="#" id="complimentary-maint-header" class="product-closed product-header">Other Maintenance</a>
+    <div class="product-section left">
+        <div class="product-input">
+            <label>
+                Product</label>
+            <select id="selectCompAddonProduct">
+            </select>
+        </div>
+        <div class="product-input">
+            <span id="spanServiceInterval">            
+            </span>
+        </div>
+        <div class="product-input">
+            <label>
+                Setting</label>
+            <select id="selectCompAddonSetting">
+            </select>
+        </div>
+        <div id="divComplimentaryOnlySetting" class="product-input displayNone">
+            <label>
+                Complimentary Setting</label>
+            <select id="selectComplimentarySetting">
+            </select>
+        </div>
+    </div>
+    <div class="product-section right">
+        <table id="tableRatesCMNT" class="rates-table" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr id="rowHeadingCMNT">
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="rowRetailPriceCMNT">
+                </tr>
+            </tbody>
+        </table>    
+    </div>
+    <div id="divCmntMasterContainer" class="displayNone">
+    </div>
+    <div id="divCmntTemplate" class="displayNone">        
+        <select class="selectCmntSetting">
+        </select>
+        <input type="text" class="InternalProductVersionId" />
+        <input type="text" class="ApplicationCode" />
+    </div>
+</div>
+-->
+
+    </div>
+    <div id="quote-panel" class="right-panel right-panel-ratetrack span3 right-panel-closed">
+    	<a class="quote-summary-button" href="#">Quote Summary</a>
+        <div class="saved-quotes-container">
+            <div id="quote-tab" class="tab">Quote Summary</div>
+            <div id="quote-inner" class="tab-area-inner">
+	            <div class="no-quotes">
+	            	You have not selected any quotes.
+	            </div>
+	            <!--maintains order of quotes, add div here every time a new quote section is added-->
+	            <div id="vsc-quote-placeholder"></div>
+	            <div id="maintenance-quote-placeholder"></div>
+        	</div>
+        </div>
+        <div class="info-summary">
+        	<div id="info-summary-tab" class="tab">Info</div>
+        	<div id="info-inner" class="tab-area-inner">
+			    <div class="deal-details">
+			    	<section>
+				    	<h3><img src="Content/zurich/images/customer_icon.png">Customer</h3>
+				        <span class="empty deal-detail detail-customer">
+				            <label for="info-bar-customer ">Name</label>
+				            <span href="#" id="info-bar-customer">John Doe</span>
+				        </span>
+				    </section>
+				    <section>
+					    <h3><img src="Content/zurich/images/vehicle_icon.png">Vehicle</h3>
+						<span class="empty deal-detail detail-model"><label for="info-bar-model">Model</label>
+				        	<span id="info-bar-model" href="#">1997 Honda Accord</span>
+						</span>
+				        <span class="empty deal-detail detail-dos">
+				            <label for="info-bar-date_of_sale">Date of Sale</label>
+				            <span name="info-bar-date_of_sale" id="info-bar-model" href="#">04/15/99</span>
+				        </span>
+				        <br />
+				        <span class="empty deal-detail detail-mileage"><label for="info-bar-mileage">Mileage</label>
+				        	<span id="info-bar-mileage" href="#">10,000</span>
+						</span>
+						<span class="empty deal-detail detail-vin"><label for="info-bar-vin">Vin</label>
+				        	<span id="info-bar-vin" href="#">1C3ADEBZ8DV300058</span>
+						</span>
+					</section>
+			    </div>
+			</div>
+		</div> 
+        	<!--
+<div class="vsc-quote quote-to-save">
+            	<div class="quote-header vsc-quote-header">
+                	VSC
+                </div>
+                <div class="row-fluid">
+	                <div class="span10">
+	                	<h1><span class="right-panel-dollar">$</span>899.99</h1>
+						<span class="info-quote">48mo/60k mi.</span>
+	                </div>
+	                <div class="span2">
+	                	<a href="#" class="remove-quote-btn">X</a>
+	                </div>
+                </div>
+            </div>
+            
+            <div class="maint-quote quote-to-save">
+            	<div class="quote-header maint-quote-header">
+                	Maintenance
+                </div>
+                <div class="row-fluid">
+	                <div class="span10">
+	                	<h1><span class="right-panel-dollar">$</span>899.99</h1>
+						<span class="info-quote">48mo/60k mi.</span>
+	                </div>
+	                <div class="span2">
+	                	<a href="#" class="remove-quote-btn">X</a>
+	                </div>
+                </div>
+            </div>
+-->
+            
+        <div>
+            <span id="spanMessage"></span>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!--         </section> -->
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
