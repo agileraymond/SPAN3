@@ -133,24 +133,19 @@ td a{
 	text-indent: -99999px;
 	background: transparent url(../images/tab-sprite-2.png) top left no-repeat;
 }
-.info-summary {
-	position: absolute;
-	bottom:0px;
-	right:0px;
-	width: 100%;
-	min-height: 87px;
-	display: inline-block;
-	vertical-align:top;
-	box-sizing:border-box;
-	font-size: 12px;
-	color:#aaa7a5;
-	text-align: left;
-}
 .tab-area-inner{
-	padding:10px 20px 30px 20px;
+	padding:10px 20px 10px 20px;
 }
-#info-inner, #info-summary-tab{
+#info-inner{
+	padding-top: 0px;
+	padding-bottom: 0px !important;
+	height:100%;
+}
+#info-summary-tab{
 	background: #041951;
+}
+#info-summary-tab{
+	margin-left: -4px;
 }
 #btnSaveQuote {	
 	text-align:center;
@@ -316,7 +311,8 @@ td a{
 }
 
 .deal-detail label {
-	display: block;
+	/*display: block;*/
+	display: inline;
 	margin-top: 8px;
 }
 
@@ -958,7 +954,7 @@ padding-top:12px !important;
 }
 
 .saved-quotes-container {
-	margin-top:90px;
+	margin-top:87px;
 	height:100%;
 }
 
@@ -1446,20 +1442,11 @@ html[xmlns] .clearfix {
 .span3.product-section{
 	background-color:#3A4F8B;
 }
-.tab{
-	width:110px;
-	margin-left:20px;
-	margin-top: 10px;
-	display:inline-block;
-	padding:5px 15px;
-	color:#FFF;
-	font-size: 14px;
-}
 #quote-panel{
 	background: #516AC2;
 	overflow-y:hidden;
 }
-#quote-tab, #quote-inner{
+#quote-tab, #quote-inner, .saved-quotes-container{
 	background: #293F80;
 }
 #quote-inner{
@@ -1487,4 +1474,64 @@ h3 img{
 	height:20px;
 	margin-top: -5px;
 	margin-right: 5px;
+}
+.tab{
+	margin:0;
+	display:inline-block;
+	padding:7px 20px;
+	color:#FFF;
+	font-size: 14px;
+	cursor:pointer;
+	height:100%;
+}
+.tab-selected{
+	background: #041951;
+}
+#tabs{
+	height:50%;
+}
+#tab1{
+
+}
+#tab2{
+	
+}
+#tab2 img{
+	width:20px;
+	height:20px;
+}
+#tab3{
+	
+}
+#tab-content-area{
+	background: #041951;
+	height:50%;
+}
+.tab-content{
+	height:50%;
+	padding:10px;
+}
+#tab-content-1{
+
+}
+#tab-content-2{
+	display: none;
+}
+#tab-content-3{
+	display: none;
+}
+.info-summary {
+	/*position: absolute;
+	bottom:0px;
+	right:0px;
+	width: 100%;
+	min-height: 87px;
+	display: inline-block;
+	vertical-align:top;
+	box-sizing:border-box;
+	font-size: 12px;
+	color:#aaa7a5;
+	text-align: left;*/
+	display: inline-block;
+	height:87px;
 }

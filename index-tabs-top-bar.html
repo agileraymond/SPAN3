@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Quotes</title>
+    <title>Top Bar - Create Quotes</title>
        <link href="Content/Zurich/css/base.css" rel="stylesheet" type="text/css" />
-    <link href="Content/Zurich/css/ratetrack-main.css" rel="stylesheet" type="text/css" />
+    <link href="Content/Zurich/css/ratetrack-main-top-bar.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
     <link href="Content/Zurich/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="Content/Zurich/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
@@ -56,24 +56,93 @@
 <!--         <section id="main"> -->
                <script type="text/javascript" src="file://localhost/Users/kevin/Desktop/SPAN3/Scripts/Zurich/ratetrack.js"></script>
 <script src="/Scripts/Zurich/base.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+		$("#tab1").click(function(){
+			$(".tab-selected").removeClass('tab-selected');
+			$("#tab1").addClass('tab-selected');
+			$("#tab-content-1").show();
+			$("#tab-content-2").hide();
+			$("#tab-content-3").hide();
+		});
+		$("#tab2").click(function(){
+			$(".tab-selected").removeClass('tab-selected');
+			$("#tab2").addClass('tab-selected');
+			$("#tab-content-1").hide();
+			$("#tab-content-2").show();
+			$("#tab-content-3").hide();
+		});
+		$("#tab3").click(function(){
+			$(".tab-selected").removeClass('tab-selected');
+			$("#tab3").addClass('tab-selected');
+			$("#tab-content-1").hide();
+			$("#tab-content-2").hide();
+			$("#tab-content-3").show();
+		});
+	});
+</script>
 <div class="container-fluid header-container">
 	<div id="header" class="row-fluid navbar-fixed-top">
 	    <div id="header-bar" class="span12">
-	    <div class="row-fluid">
-		    <div id="logo" class="span2"></div>
-		    <div id="btnSaveQuote" class="span3">
-		    <div class="container-fluid">
-		    	<div class="row-fluid">
-					<div class="span6">		    	
-		        	<a class="btn-save" href="#">Save</a>  
+	    	<div class="row-fluid">
+			    <div id="logo" class="span2"></div>
+			    <div class="info-summary">
+				    	<div id="info-inner" class="tab-area-inner">
+				    		<div id="tabs">
+							    <div id="tab1" class="tab tab-selected">
+							    	<img src="Content/zurich/images/customer_icon.png">
+							    </div>
+							    <div id="tab2" class="tab">
+							    	<img src="Content/zurich/images/vehicle_icon.png">
+							    </div>
+							    <div id="tab3" class="tab">
+							    	<img src="Content/zurich/images/finance_icon.png">
+							    </div>
+							</div>
+							<div id="tab-content-area">
+							    <div id="tab-content-1" class="tab-content">
+							    	<span class="empty deal-detail detail-customer">
+							            <label for="info-bar-customer ">Name</label>
+							            <span href="#" id="info-bar-customer">John Doe</span>
+							        </span>
+							    </div>
+							    <div id="tab-content-2" class="tab-content">
+									<span class="empty deal-detail detail-model">
+										<label for="info-bar-model">Model</label>
+							        	<span id="info-bar-model" href="#">1997 Honda Accord</span>
+									</span>
+							        <span class="empty deal-detail detail-mileage">
+							        	<label for="info-bar-mileage">Mileage</label>
+							        	<span id="info-bar-mileage" href="#">10,000</span>
+									</span>
+									<span class="empty deal-detail detail-vin">
+										<label for="info-bar-vin">Vin</label>
+							        	<span id="info-bar-vin" href="#">1C3ADEBZ8DV300058</span>
+									</span>
+							    </div>
+							    <div id="tab-content-3" class="tab-content">
+							        <span class="empty deal-detail detail-dos">
+							            <label for="info-bar-date_of_sale">Date of Sale</label>
+							            <span name="info-bar-date_of_sale" id="info-bar-model" href="#">04/15/99</span>
+							        </span>
+							    </div>
+							</div>
+						</div>
 					</div>
-					<div class="span6">      
-		            <a class="btn-cancel" href="#">Cancel</a>
-					</div>
-		    	</div>
-		    </div>
-			</div>
+			    <div id="btnSaveQuote" class="span3">
+				    <div class="container-fluid">
+				    	<div class="row-fluid">
+							<div class="span6">		    	
+				        	<a class="btn-save" href="#">Save</a>  
+							</div>
+							<div class="span6">      
+				            <a class="btn-cancel" href="#">Cancel</a>
+							</div>
+				    	</div>
+				    </div>
+				</div>
 		   </div>
+		</div>
 	    </div>
 	</div>
 </div>
@@ -652,37 +721,6 @@
 	            <div id="maintenance-quote-placeholder"></div>
         	</div>
         </div>
-        <div class="info-summary">
-        	<div id="info-summary-tab" class="tab">Info</div>
-        	<div id="info-inner" class="tab-area-inner">
-			    <div class="deal-details">
-			    	<section>
-				    	<img src="../images/customer_icon.png" <h3>Customer</h3>
-				        <span class="empty deal-detail detail-customer">
-				            <label for="info-bar-customer ">Name</label>
-				            <span href="#" id="info-bar-customer">John Doe</span>
-				        </span>
-				    </section>
-				    <section>
-					    <h3>Vehicle</h3>
-						<span class="empty deal-detail detail-model"><label for="info-bar-model">Model</label>
-				        	<span id="info-bar-model" href="#">1997 Honda Accord</span>
-						</span>
-				        <span class="empty deal-detail detail-dos">
-				            <label for="info-bar-date_of_sale">Date of Sale</label>
-				            <span name="info-bar-date_of_sale" id="info-bar-model" href="#">04/15/99</span>
-				        </span>
-				        <br />
-				        <span class="empty deal-detail detail-mileage"><label for="info-bar-mileage">Mileage</label>
-				        	<span id="info-bar-mileage" href="#">10,000</span>
-						</span>
-						<span class="empty deal-detail detail-vin"><label for="info-bar-vin">Vin</label>
-				        	<span id="info-bar-vin" href="#">1C3ADEBZ8DV300058</span>
-						</span>
-					</section>
-			    </div>
-			</div>
-		</div> 
         	<!--
 <div class="vsc-quote quote-to-save">
             	<div class="quote-header vsc-quote-header">

@@ -805,7 +805,7 @@ td a{
 .table-header-months {
 	position: absolute !important;
 	top:50%;
-	left:-10px;
+	left:-20px;
 		/* Safari */
 	-webkit-transform: rotate(-90deg);
 	/* Firefox */

@@ -89,8 +89,16 @@ var RATETRACK = {
                 500,
                 function(){
                     $(this).remove();         
-                    if($('.saved-quotes-container').children().length <= 2)
-                           $('.no-quotes').css('display', 'block');
+                    //if($('.saved-quotes-container').children().length <= 2)
+                    var total = 0;
+                    $('.quote-placeholder').each(function(){
+                        if($(this).html() != ""){
+                            total++;
+                        }
+                    });
+                    if(total == 0){
+                        $('.no-quotes').css('display', 'block');
+                    }
                 }
             );
             
@@ -103,6 +111,7 @@ var RATETRACK = {
             selectedToRemove.css({'background-color' : unimportant, 'color' : cell_color});
             selectedToRemove.animate({backgroundColor: "#FFFFFF", color: "#000000"}, 500, function(){
                 selectedToRemove.parent().removeClass('rate-selected');
+                selectedToRemove.css('background-color', '');
             });
             highlight_class = "grid-label-highlight-" + type;
             highlight = $('.' + highlight_class);
@@ -219,9 +228,9 @@ var RATETRACK = {
         $("tr td:not(.y-label):odd").addClass('table-column-stripe');
 
         //set first side column height to 100%
-        var column = $("#VSC-options-column");
-        container_height = column.parent().height();
-        column.height(container_height + 20 + "px");
+        $(".product-section.left").each(function(){
+            $(this).height($(this).parent().height()+ 20 + "px");
+        });
     },
     /* TODO: delete?
     removeSavedQuote: function (pTarget){
@@ -393,7 +402,7 @@ $(function (){
         var $color = $productHeader.css('color');
         var type = $productHeader.text().toLowerCase(); //which type of quote is being selected/unselected (vsc or maintenance)
         var selectedRate = $rateTable.find('.rate-selected a');
-        var quoteContainer = $('.saved-quotes-container');
+        var quoteContainer = $('#' + type +'-quote-placeholder');//maintains order of quotes, was $('.saved-quotes-container');
 
         //clear the previous selections
         var grid_label_highlight_class = "grid-label-highlight-" + type;
