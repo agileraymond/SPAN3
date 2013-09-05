@@ -180,7 +180,7 @@ var RATETRACK = {
             }else if(id == 'info-bar-customer'){
                 self.$infoCustomer.click();
             }else{
-                console.log("couldn't match id:" + id);
+                //console.log("couldn't match id:" + id);
             }
         });
         this.$saveQuotesBtn.click(function (e){
@@ -247,7 +247,7 @@ var RATETRACK = {
             this.$currentInfoSection = newSection;
             newSection.show();
         }catch(e){
-            console.log("toggleInfoSection: " + e.message);
+            //console.log("toggleInfoSection: " + e.message);
         }
         
     },
@@ -389,7 +389,7 @@ $(function (){
                 last_header.removeClass(grey_class);
                 last_y_label.removeClass(grey_class);
             }catch(e){
-                console.log("couldn't remove grey label class(es)");
+                //console.log("couldn't remove grey label class(es)");
             }
         }
     );
@@ -715,7 +715,7 @@ $(function (){
                 if($("#txtViewStatus").val() == "2")
                     window.close();
             }catch(e){
-                console.log("error while trying to close window for menu integration " + e.message);
+                //console.log("error while trying to close window for menu integration " + e.message);
             }
         }else{
             showMessage(errorMessage, "error");
@@ -742,7 +742,7 @@ function ClearLWIsUpgrade(){
         control = GetLwIsUpgradeControl();
         $(control).attr('checked', false);
     }catch(e){
-        console.log("ClearLWIsUpgrade " + e.message);
+        //console.log("ClearLWIsUpgrade " + e.message);
     }
 }
 /* TODO: delete?
@@ -757,7 +757,7 @@ function LoadLwUpgradeProductInfo(){
         //}
         // iterate master container and load vsc new and used
     }catch(e){
-        console.log("LoadLwUpgradeProductInfo " + e.message);        
+        //console.log("LoadLwUpgradeProductInfo " + e.message);        
     }    
 }
 */
@@ -790,7 +790,7 @@ function FindCurrentVscProduct(loadLwTerms){
             ProcessVscProductData(code);        
 
     }catch(e){
-        console.log("FindCurrentVscProduct " + e.message);
+        //console.log("FindCurrentVscProduct " + e.message);
     }
 }
 function FindCurrentLWProduct(){
@@ -808,7 +808,7 @@ function FindCurrentLWProduct(){
             ProcessVscProductData(code);
 
     }catch(e){
-        console.log("FindCurrentVscProduct " + e.message);
+        //console.log("FindCurrentVscProduct " + e.message);
     }
 }
 function ProcessLWProductData(code){
@@ -816,14 +816,14 @@ function ProcessLWProductData(code){
     try{
         ProcessVscProductData("LW");
     }catch(e){
-        console.log("ProcessLWProduct LW " + e.message);
+        //console.log("ProcessLWProduct LW " + e.message);
     }
 
     // process vsc new coverage and deductible
     try{
         ProcessVscProductData("NEW");
     }catch(ex){
-        console.log("ProcessLWProduct NEW " + ex.message);
+        //console.log("ProcessLWProduct NEW " + ex.message);
     }        
 }
 function ProcessVscProductData(code){
@@ -845,7 +845,7 @@ function CopyLWTermsFromMasterContainer(){
             CopySelectControl($(b), lwTermSelect, false);
         });
     }catch(e){
-        console.log("CopyLWTermsFromMasterContainer " + e.message);
+        //console.log("CopyLWTermsFromMasterContainer " + e.message);
     }
 }
 function GetLWTermSelectControl(){
@@ -873,7 +873,7 @@ function ValidateInServiceDate(vscContainer){
         inserviceInput = GetVscIsInserviceRequired(vscContainer);
         SetVisibilityForDivInServiceDate(inserviceInput);
     }catch(e){
-        console.log("DisplayHideVscInServiceDate " + e.message);
+        //console.log("DisplayHideVscInServiceDate " + e.message);
     }
 }
 function IsValidInServiceDate(){
@@ -890,7 +890,7 @@ function DisplayHideVscInServiceDate(vscContainer){
         inserviceInput = GetVscIsInserviceRequired(vscContainer);
         SetVisibilityForDivInServiceDate(inserviceInput);
     }catch(e){
-        console.log("DisplayHideVscInServiceDate " + e.message);
+        //console.log("DisplayHideVscInServiceDate " + e.message);
     }
 }
 function SetVisibilityForDivInServiceDate(inserviceDateFlag){
@@ -911,7 +911,7 @@ function GetRateAsValue(){
         if(vscNewLink.hasClass("displayNone"))
             value = "USED";
     }catch(e){
-        console.log("GetRateAsValue " + e.message);
+        //console.log("GetRateAsValue " + e.message);
     }
     return value;
 }
@@ -921,7 +921,7 @@ function GetCertifiedValue(){
     try{
         val = $("#selectVscCertified :selected").val();
     }catch(e){
-        console.log("GetCertifiedValue " + e.message);
+        //console.log("GetCertifiedValue " + e.message);
     }
     return val;
 }
@@ -935,7 +935,7 @@ function FindProductCode(rateAsValue, certifiedValue){
             productCode = "LW";        
         else productCode = rateAsValue;
     }catch(e){
-        console.log("FindProductCode " + e.message);
+        //console.log("FindProductCode " + e.message);
     }
     return productCode;
 }
@@ -948,7 +948,7 @@ function GetLWProductCode(){
         if(!isNoUpgrade)
             code = "NEW";    
     }catch(e){
-        console.log("GetLWProductCode " + e.message);
+        //console.log("GetLWProductCode " + e.message);
     }
     return code;
 }
@@ -960,7 +960,7 @@ function IsNoUpgradeCoverage(){
         if(vscCoverageText == "No Upgrade")
             bol = true;
     }catch(e){
-        console.log("IsNoUpgradeCoverage " + e.message);
+        //console.log("IsNoUpgradeCoverage " + e.message);
     }
     return bol;
 }
@@ -969,7 +969,7 @@ function GetSelectedTextVscCoverage(){
     try{
         text = $("#selectCoverageVSC :selected").text();    
     }catch(e){
-        console.log("GetSelectedTextVscCoverage " + e.message);    
+        //console.log("GetSelectedTextVscCoverage " + e.message);    
     }
     return text;
 }
@@ -1065,7 +1065,7 @@ function SelectEditQuote(){
         saveQuote = $.parseJSON($("#txtSavedQuoteInfo").text());
         $.each(saveQuote, function (a, rate){
             try{
-                //console.log("before calling process edit");
+                ////console.log("before calling process edit");
                 t = setTimeout(function (){ ProcessEditQuote(rate) }, 3000);
                 /*
                 //ProcessEditQuote(rate);
@@ -1074,9 +1074,9 @@ function SelectEditQuote(){
                 ProcessCoverages(rate.RatedProduct.ParentProductType.ApplicationCode, covList);
                 ProcessOptions(rate.RatedProduct.ParentProductType.ApplicationCode, rate.RatedProduct.ProductOptions);
                 */
-                //console.log("after calling process edit");
+                ////console.log("after calling process edit");
             }catch(e){
-                console.log("error inside process edit " + e.message);
+                //console.log("error inside process edit " + e.message);
             }
         });
     }
@@ -1102,11 +1102,11 @@ function ProcessEditQuote(rate){
             // select saved rate here
             try{
                 uiRateCount = $("#rowRetailPriceMAINTENANCE > td > a").length;
-                //console.log("maint rates inside Process edit quote " + uiRateCount);
+                ////console.log("maint rates inside Process edit quote " + uiRateCount);
                 if(uiRateCount > 0)
                     $("#rowRetailPriceMAINTENANCE > td").find(termSelector).trigger("click");
             }catch(e){
-                console.log("issue with maint rates " + e.message);
+                //console.log("issue with maint rates " + e.message);
             }
         }else if(IsAppCodeForVsc(rate.RatedProduct.ParentProductType.ApplicationCode)){
             vscNew = "NEW";
@@ -1121,12 +1121,12 @@ function ProcessEditQuote(rate){
             uiRateCount = 0;
             try{
                 uiRateCount = $("#tableRatesVSC > tbody > tr > td > a").length;
-                //console.log("vsc rates inside Process edit quote " + uiRateCount);
+                ////console.log("vsc rates inside Process edit quote " + uiRateCount);
                 if(uiRateCount > 0)
                     $("#tableRatesVSC > tbody > tr > td").find(termSelector).trigger("click");
 
             }catch(e){
-                console.log("issue with VSC rates " + e.message);
+                //console.log("issue with VSC rates " + e.message);
             }
         }else if(IsAppCodeForTW(rate.RatedProduct.ParentProductType.ApplicationCode)){
             $("#selectTWCoverages").val($.trim(rate.RatedCoverage.InternalCoverageId));
@@ -1135,39 +1135,39 @@ function ProcessEditQuote(rate){
             DisplayRunFlatRadio(rfValue);
             try{
                 uiRateCount = $("#rowRetailPriceTW > td > a").length;
-                //console.log("tw rates inside Process edit quote " + uiRateCount);
+                ////console.log("tw rates inside Process edit quote " + uiRateCount);
                 if(uiRateCount > 0)
                     $("#rowRetailPriceTW > td").find(termSelector).trigger("click");
 
             }catch(e){
-                console.log("issue with tw rates " + e.message);
+                //console.log("issue with tw rates " + e.message);
             }
         }else if(IsAppCodeForGAP(rate.RatedProduct.ParentProductType.ApplicationCode)){
             uiRateCount = 0;
             try{
                 uiRateCount = $("#rowRetailPriceGAP > a").length;
-                //console.log("gap rates " + uiRateCount);
+                ////console.log("gap rates " + uiRateCount);
                 if(uiRateCount > 0)
                     $("#rowRetailPriceGAP > a:first").click();
 
             }catch(ex){
-                console.log(" issue with gap rates " + ex.message);
+                //console.log(" issue with gap rates " + ex.message);
             }
         }else if(IsAppCodeForSG(rate.RatedProduct.ParentProductType.ApplicationCode)){
             $("#selectCoverageSG").val($.trim(rate.RatedCoverage.InternalCoverageId));
             uiRateCount = 0;
             try{
                 uiRateCount = $("#rowRetailPriceSG > a").length;
-                //console.log("sg rates " + uiRateCount);
+                ////console.log("sg rates " + uiRateCount);
                 if(uiRateCount > 0)
                     $("#rowRetailPriceSG > a:first").click();
 
             }catch(ex){
-                console.log(" issue with sg rates " + ex.message);
+                //console.log(" issue with sg rates " + ex.message);
             }
         }
     }catch(e){
-        console.log(e.message);
+        //console.log(e.message);
     }
 }
 function GetRunFlatValue(RatedTerm){
@@ -1180,7 +1180,7 @@ function GetRunFlatValue(RatedTerm){
             });
         }    
     }catch(e){
-        console.log("GetRunFlatValue " + e.message);
+        //console.log("GetRunFlatValue " + e.message);
     }
     return runflatValue;    
 }
@@ -1191,7 +1191,7 @@ function DisplayRunFlatRadio(runFlatValue){
         else
             $("#radioTWNo").attr('checked', 'checked');
     }catch(e){
-        console.log("DisplayRunFlatRadio " + e.message);
+        //console.log("DisplayRunFlatRadio " + e.message);
     }
 }
 function FindMaintenanceIntervalId(rate){
@@ -1266,7 +1266,7 @@ function ProcessVscProductInfo(vscProduct){
             vscProduct.ParentProductType.DisplayName,
             vscProduct.InternalProductVersionId);
     }catch (e){
-        console.log("ProcessVscProductInfo " + e.message);
+        //console.log("ProcessVscProductInfo " + e.message);
     }
 }
 function ProcessCmntGroupProductInfo(product){
@@ -1278,7 +1278,7 @@ function ProcessCmntGroupProductInfo(product){
             product.InternalProductVersionId);
         selectCmntProductInfoControl.val(product.InternalProductVersionId);       
     }catch(e){
-        console.log("ProcessCmntProductInfo " + e.message);
+        //console.log("ProcessCmntProductInfo " + e.message);
     }
 }
 function GetVscProductInfoSelect(){
@@ -1286,7 +1286,7 @@ function GetVscProductInfoSelect(){
     try{
         control = $("#selectVscProduct");
     }catch(e){
-        console.log("GetVscProductInfoSelect " + e.message);
+        //console.log("GetVscProductInfoSelect " + e.message);
     }
     return control;    
 }
@@ -1295,7 +1295,7 @@ function GetCmntProductInfoSelect(){
     try{
         control = $("#selectCompAddonProduct");
     }catch(e){
-        console.log("GetCmntProductInfoSelect " + e.message);
+        //console.log("GetCmntProductInfoSelect " + e.message);
     }
     return control;
 }
@@ -1304,7 +1304,7 @@ function ProcessVSCProduct(vscProduct){
     try{
         ProcessVscProductInfo(vscProduct);
     }catch (e){
-        console.log("ProcessVSCProduct failed to add product info " + e.message);
+        //console.log("ProcessVSCProduct failed to add product info " + e.message);
     }
     //var code = vscProduct.ParentProductType.ApplicationCode;
     //var sub_code = vscProduct.ParentProductType.ApplicationSubCode;
@@ -1317,7 +1317,7 @@ function ProcessVSCProduct(vscProduct){
         var vscContainer = SetupVscContainerInMasterTemplate(vscProduct);   
         //GetVscContainerByPpvId();
     }catch(ex){
-        console.log("ProcessVSCProduct failed to setup vsc container " + ex.message);
+        //console.log("ProcessVSCProduct failed to setup vsc container " + ex.message);
     } 
     
     // process rate as selection
@@ -1328,34 +1328,34 @@ function ProcessVSCProduct(vscProduct){
     //try{
     //    var isInServiceDateRequired = ProcessVscCertified(vscProduct);
     //} catch (y){
-    //    console.log("ProcessVSCProduct isInServiceDateRequired" + y.message);    
+    //    //console.log("ProcessVSCProduct isInServiceDateRequired" + y.message);    
     //}
 
 //    // process in service date
     try{
         ProcessVscInServiceDate(vscProduct, vscContainer);
     }catch(a){
-        console.log("ProcessVSCProduct ProcessVscInServiceDate " + a.message);    
+        //console.log("ProcessVSCProduct ProcessVscInServiceDate " + a.message);    
     }
 //    // process coverages and deductibles
     try{
         ProcessVscCoverages(vscProduct, vscContainer);
     }catch(b){
-        console.log("ProcessVSCProduct ProcessVscCoverages " + b.message);    
+        //console.log("ProcessVSCProduct ProcessVscCoverages " + b.message);    
     }
 
     try{
         ProcessVscApplicationCode(vscProduct, vscContainer) 
     } 
     catch (d){    
-            console.log("ProcessVSCProduct ProcessVscApplicationCode " + d.message);
+            //console.log("ProcessVSCProduct ProcessVscApplicationCode " + d.message);
     }
     
 //    // process partner specific fields
 //    try{
 //        ProcessPartnerSpecificFields(vscProduct, vscContainer);
 //    } catch (c){
-//        console.log("ProcessVSCProduct ProcessPartnerSpecificFields " + c.message);
+//        //console.log("ProcessVSCProduct ProcessPartnerSpecificFields " + c.message);
 //    }
 }
 
@@ -1364,27 +1364,27 @@ function ProcessCmntGroup(product){
     try{
         ProcessCmntGroupProductInfo(product);
     }catch (e){
-        console.log("ProcessCmntGroup failed to add product info " + e.message);
+        //console.log("ProcessCmntGroup failed to add product info " + e.message);
     }
 
     try{
         var ppvId = GetCmntProductInfoValue();
         var container = GetCmntContainerByPpv(ppvId);
     }catch(ex){
-        console.log("ProcessCmntGroup failed to setup container " + ex.message);
+        //console.log("ProcessCmntGroup failed to setup container " + ex.message);
     }
     
     try{
         ProcessCmntSetting(product, container);
     } catch (b){
-        console.log("ProcessCmntGroup setting " + b.message);
+        //console.log("ProcessCmntGroup setting " + b.message);
     }
 
     try{
         ProcessApplicationCode(product, container)
     }
     catch (d){
-        console.log("ProcessCmntGroup ProcessApplicationCode " + d.message);
+        //console.log("ProcessCmntGroup ProcessApplicationCode " + d.message);
     }    
 }
 function ProcessPartnerSpecificFields(product, container){
@@ -1393,7 +1393,7 @@ function ProcessPartnerSpecificFields(product, container){
         inputControl = GetVscPartnerFieldInput(container);
         inputControl.text(JSON.stringify(product.PartnerSpecificFields));
     }catch(e){
-        console.log("ProcessPartnerSpecificFields " + e.message);
+        //console.log("ProcessPartnerSpecificFields " + e.message);
     }
 }
 function DisplayInvalidValueForInServiceDate(){
@@ -1411,7 +1411,7 @@ function IsServiceDateRequiredFromContainer(vscContainer){
         if(inserviceInput.text() == "1")
             isRequired = true;
     }catch(e){
-        console.log("IsServiceDateRequiredFromContainer " + e.message);
+        //console.log("IsServiceDateRequiredFromContainer " + e.message);
     }
     return isRequired;
 }
@@ -1426,7 +1426,7 @@ function ProcessVscInServiceDate(vscProduct, vscContainer){
             inserviceInput.text(flag);
         }
     }catch(e){
-        console.log("ProcessVscInServiceDate " + e.message);
+        //console.log("ProcessVscInServiceDate " + e.message);
     }
     return flag;
 }
@@ -1436,7 +1436,7 @@ function ProcessVscApplicationCode(vscProduct, vscContainer){
             var input = GetVscApplicationCodeInput(vscContainer);
             input.text(vscProduct.ParentProductType.ApplicationCode);        
     }catch(e){
-        console.log("ProcessVscApplicationCode " + e.message);
+        //console.log("ProcessVscApplicationCode " + e.message);
     }
 }
 function ProcessApplicationCode(product, container){
@@ -1444,7 +1444,7 @@ function ProcessApplicationCode(product, container){
         var input = GetApplicationCodeInputFromContainer(container);
         input.text(product.ParentProductType.ApplicationCode);
     }catch(e){
-        console.log("ProcessApplicationCode " + e.message);
+        //console.log("ProcessApplicationCode " + e.message);
     }
 }
 function LoadVscDeductibles(){
@@ -1453,14 +1453,14 @@ function LoadVscDeductibles(){
         var vscContainer = GetCurrentVscContainer();
         CopyVscDeductiblesFromContainerToUi(vscContainer);
     }catch(e){
-    console.log("LoadVscDeductibles " + e.message);
+    //console.log("LoadVscDeductibles " + e.message);
     }
 }
 function LoadVscDeductiblesByContainer(container){
     try{
         CopyVscDeductiblesFromContainerToUi(container);
     }catch(e){
-        console.log("LoadVscDeductiblesByContainer " + e.message);
+        //console.log("LoadVscDeductiblesByContainer " + e.message);
     }
 }
 function LoadVscCoverages(){
@@ -1470,14 +1470,14 @@ function LoadVscCoverages(){
         CopyVscCoveragesFromContainerToUi(vscContainer, true);
         //HideShowLWDiv(vscContainer);
     }catch(e){
-        console.log("LoadVscCoverages " + e.message);
+        //console.log("LoadVscCoverages " + e.message);
     }
 }
 function LoadVscCoveragesByContainer(container){
     try{
         CopyVscCoveragesFromContainerToUi(container, true);
     }catch(e){
-        console.log("LoadVscCoveragesByContainer " + e.message);
+        //console.log("LoadVscCoveragesByContainer " + e.message);
     }
 }
 function HideShowLWDiv(vscContainer){
@@ -1489,7 +1489,7 @@ function HideShowLWDiv(vscContainer){
             hide = false;
         HideShowLWTermDiv(hide);       
     }catch(e){
-        console.log("HideShowLWDiv " + e.message);
+        //console.log("HideShowLWDiv " + e.message);
     }    
 }
 function GetCurrentVscContainer(){
@@ -1505,7 +1505,7 @@ function GetCurrentVscContainer(){
         currentContainer = GetVscContainerByPpvId(); 
         //GetVscContainerByCode(code);    
     }catch(e){
-        console.log("GetCurrentVscContainer " + e.message);
+        //console.log("GetCurrentVscContainer " + e.message);
     }
     return currentContainer;
 }
@@ -1534,7 +1534,7 @@ function GetVscContainerByPpvId(){
         vscMasterContainer;
     try{
         if(template.length == 0){
-            //console.log("0 found now clone and append");
+            ////console.log("0 found now clone and append");
             template = $("#divVscTemplate").clone();
             template.attr('id', idName);
             vscMasterContainer = $("#divVscMasterContainer");
@@ -1542,7 +1542,7 @@ function GetVscContainerByPpvId(){
         }
         return template;
     }catch(e){
-        console.log("GetVscContainerByPpvId " + e.message);
+        //console.log("GetVscContainerByPpvId " + e.message);
     }
 }
 function GetVscContainerByPpv(ppvId){
@@ -1560,7 +1560,7 @@ function GetVscContainerByPpv(ppvId){
         }
         return template;
     }catch(e){
-        console.log("GetVscContainerByPpvId " + e.message);
+        //console.log("GetVscContainerByPpvId " + e.message);
     }
 }
 function GetCmntContainerByPpv(ppvId){
@@ -1578,7 +1578,7 @@ function GetCmntContainerByPpv(ppvId){
         }
         return template;
     }catch(e){
-        console.log("GetCmntContainerByPpv " + e.message);
+        //console.log("GetCmntContainerByPpv " + e.message);
     }
 }
 function GetLWUpgradePpvId(){
@@ -1589,7 +1589,7 @@ function GetLWUpgradePpvId(){
         if(IsLwUpgradeVisibleAndChecked())
             ppvId = GetLwUpgradeProductValue();            
     }catch(e){
-        console.log("GetLWUpgradePpvId " + e.message);
+        //console.log("GetLWUpgradePpvId " + e.message);
     }
     return ppvId;
 }
@@ -1603,7 +1603,7 @@ function SetupVscContainerInMasterTemplate(vscProduct){
         template = $(vscSelector),
         vscMasterContainer;
         if(template.length == 0){
-            //console.log("0 found now clone and append");
+            ////console.log("0 found now clone and append");
             template = $("#divVscTemplate").clone();
             template.attr('id', idName);
             vscMasterContainer = $("#divVscMasterContainer");
@@ -1611,7 +1611,7 @@ function SetupVscContainerInMasterTemplate(vscProduct){
         }
         return template;
     }catch(e){
-        console.log("SetupVscContainerInMasterTemplate " + e.message);
+        //console.log("SetupVscContainerInMasterTemplate " + e.message);
     }
 }
 function GetVscProductInfoValue(){
@@ -1621,7 +1621,7 @@ function GetVscProductInfoValue(){
         //GetVscProductInfoSelect().val();
         return value;
     }catch(e){
-        console.log("GetVscProductInfoValue " + e.message);
+        //console.log("GetVscProductInfoValue " + e.message);
     }        
 }
 function GetCmntProductInfoValue(){
@@ -1630,7 +1630,7 @@ function GetCmntProductInfoValue(){
         value = $("#selectCompAddonProduct :selected").val();
         return value;
     }catch(e){
-        console.log("GetCmntProductInfoValue " + e.message);
+        //console.log("GetCmntProductInfoValue " + e.message);
     }        
 }
 function GetAllSelectTermFromMasterContainer(){
@@ -1638,7 +1638,7 @@ function GetAllSelectTermFromMasterContainer(){
     try{
         selectCol = $("#divVscMasterContainer").find(".selectTerm");
     }catch(e){
-        console.log("GetAllSelectTermFromMasterContainer " + e.message);
+        //console.log("GetAllSelectTermFromMasterContainer " + e.message);
     }
     return selectCol;
 }
@@ -1650,9 +1650,9 @@ function GetVscContainerByCode(code){
     else {
         try{
             vscContainer = $("div[id^='" + filter + "']");
-            //console.log("vsc container count " + vscContainer.length);    
+            ////console.log("vsc container count " + vscContainer.length);    
         }catch(e){
-            console.log("GetVscContainerByCode " + e.message);
+            //console.log("GetVscContainerByCode " + e.message);
         }
     }
     return vscContainer;
@@ -1662,9 +1662,9 @@ function GetVscContainerByPpvIdOld(ppvId){
         vscContainer;
     try{
         vscContainer = $("div[id^='" + filter + "']");
-        //console.log("vsc container count " + vscContainer.length);    
+        ////console.log("vsc container count " + vscContainer.length);    
         }catch(e){
-            console.log("GetVscContainerByCode " + e.message);
+            //console.log("GetVscContainerByCode " + e.message);
         }
     return vscContainer;
 }
@@ -1682,7 +1682,7 @@ function GetLWContainerByTermId(){
             });
         });
     }catch(e){
-        console.log("GetLWContainerByTermId " + e.message);
+        //console.log("GetLWContainerByTermId " + e.message);
     }
     return lwContainer;
 }
@@ -1712,7 +1712,7 @@ function ProcessVscTerms(vscContainer, coverage){
         // hide or show lw term
         HideShowLWTermDiv(hide);
     }catch(e){
-        console.log("ProcessVscTerms " + e.message);
+        //console.log("ProcessVscTerms " + e.message);
     }
 }
 function CopyVscCoveragesFromContainerToUi(vscContainer, removeTargetOptions){
@@ -1782,7 +1782,7 @@ function CopySelectControl(source, target, removeOptions){
         // append options to target
         target.append(options);
     }catch(e){
-        console.log("copy select control error " + e.message);
+        //console.log("copy select control error " + e.message);
     }
 }
 function ClearOptions(selectControl){
@@ -1817,7 +1817,7 @@ function GetVscIsInserviceRequired(vscContainer){
     try{
         inputControl = $(vscContainer).find('.IsInserviceRequired');
     }catch(e){
-        console.log("GetVscIsInserviceRequired " + e.message);
+        //console.log("GetVscIsInserviceRequired " + e.message);
     }
     return inputControl;
 }
@@ -1878,7 +1878,7 @@ function ProcessVscRateAs(vscProduct){
             }
         }
     }catch(e){
-        console.log('ProcessVscRateAs ' + e.message);
+        //console.log('ProcessVscRateAs ' + e.message);
     }    
 }
 function ProcessOptions(productCode, optionList){
@@ -1915,7 +1915,7 @@ function IsVscInputValid(){
             isValid = true;
         }
     }catch(e){
-        console.log("IsVscInputValid " + e.message);
+        //console.log("IsVscInputValid " + e.message);
     }
     return isValid;
 }
@@ -1932,7 +1932,7 @@ function IsVscInputValidByContainer(container){
             isValid = true
         };
     }catch(e){
-        console.log("IsVscInputValidByContainer " + e.message);
+        //console.log("IsVscInputValidByContainer " + e.message);
     }
     return isValid;
 }
@@ -1951,7 +1951,7 @@ function GetVscRates(){
         coverageId = GetVscSelectedCoverageId();
         GetRatesByProductCodeAndCoverage(code, "0", coverageId);
     }catch(e){
-        console.log("GetVscRates " + e.message);
+        //console.log("GetVscRates " + e.message);
     }
 }
 function GetCmntRates(){
@@ -1963,7 +1963,7 @@ function GetCmntRates(){
         coverageId = GetCmntSettingValue();
         GetRatesByPpvId(ppvId, coverageId);
     }catch(e){
-        console.log("GetCmntRates " + e.message);
+        //console.log("GetCmntRates " + e.message);
     }
 }
 function GetVscRatesByContainer(container){
@@ -1975,7 +1975,7 @@ function GetVscRatesByContainer(container){
         coverageId = GetVscSelectedCoverageId();
         GetRatesByProductCodeAndCoverage(code, "0", coverageId);
     }catch(e){
-        console.log("GetVscRatesByContainer " + e.message);
+        //console.log("GetVscRatesByContainer " + e.message);
     }
 }
 function GetVscProductCode(){
@@ -1984,9 +1984,9 @@ function GetVscProductCode(){
     try{
         vscContainer = GetVscContainerByPpvId();
         code = $(vscContainer).find('.ApplicationCode').text();
-        //console.log("inside GetVscProductCode " + code);
+        ////console.log("inside GetVscProductCode " + code);
     }catch(e){
-        console.log("GetVscProductCode " + e.message);
+        //console.log("GetVscProductCode " + e.message);
     }
     return code;
 }
@@ -1995,7 +1995,7 @@ function GetApplicationCodeTextFromContainer(container){
     try{
         code = $(container).find('.ApplicationCode').text();
     }catch(e){
-        console.log("GetApplicationCodeTextFromContainer " + e.message);
+        //console.log("GetApplicationCodeTextFromContainer " + e.message);
     }
     return code;
 }
@@ -2004,7 +2004,7 @@ function GetVscProductCodeByContainer(container){
     try{
         code = $(container).find('.ApplicationCode').text();
     }catch(e){
-        console.log("GetVscProductCodeByContainer " + e.message);
+        //console.log("GetVscProductCodeByContainer " + e.message);
     }
     return code;
 }
@@ -2097,7 +2097,7 @@ function GetBaseNoUpgradePpvId(){
         if(IsLwUpgradeVisibleAndChecked())
             ppvId = GetVscProductInfoValue();
     }catch(e){
-        console.log("GetBaseNoUpgradePpvId " + e.message);
+        //console.log("GetBaseNoUpgradePpvId " + e.message);
     }
     return ppvId;
 }
@@ -2123,7 +2123,7 @@ function GetRunFlatTireValue(){
         if(typeof isRunFlat == "undefined")
             isRunFlat = "0";
     }catch(e){
-        console.log("failed to get run flat value " + e.message);
+        //console.log("failed to get run flat value " + e.message);
     }
     return isRunFlat;
 }
@@ -2359,9 +2359,9 @@ function ProcessRates(rateList){
         if(rateList.RatedCoverage.InternalCoverageId == selectedCoverage &&
                 rateList.RatedDeductible.InternalDeductibleId == selectedDeductible){
             $.each(rateList.RatedTerms, function (o, p){
-                if(months[p.RatedTerm.DisplayName])
-                    console.log('duplicate month');
-                else {
+                if(months[p.RatedTerm.DisplayName]) {
+                    //console.log('duplicate month');
+                } else {
                     months[p.RatedTerm.DisplayName] = true;
                     $("#rowHeadingLWENG").append("<td>" + p.RatedTerm.DisplayName + "</td>");
                     $("#rowRetailPriceLWENG").append("<td><a id='" + p.RatedTerm.InternalTermId + "_" + " " + "' alt='" + JSON.stringify(rateList) + "' href=\"#\">" + p.RetailCost + "</a></td>");
@@ -2389,7 +2389,7 @@ function ShowAvailableProducts(){
                 HideShowDealerProducts(data);
             });
     }catch(e){
-        console.log("ShowAvailableProducts " + e.message);
+        //console.log("ShowAvailableProducts " + e.message);
     }    
 }
 
@@ -2429,7 +2429,7 @@ function HideShowDealerProducts(productCollection){
         HideProductContainer("CMNT", hideCompMaint);
             
     }catch(e){
-        console.log("HideShowDealerProducts " + e.message);
+        //console.log("HideShowDealerProducts " + e.message);
     }
 }
 function HideProductContainer(productCode, hide){
@@ -2451,7 +2451,7 @@ function HideProductContainer(productCode, hide){
                 $("#divContainerComplimentary").hide();
         }
     }catch(e){
-        console.log("HideProductContainer " + e.message);
+        //console.log("HideProductContainer " + e.message);
     }    
 }
 function LoadVehicleYears(){
@@ -2468,7 +2468,7 @@ function LoadVehicleYears(){
     });
 
     request.fail(function (jqXHR, textStatus){
-    console.log("request failed for LoadVehicleYears: " + textStatus);
+    //console.log("request failed for LoadVehicleYears: " + textStatus);
     });
     */
 
@@ -2580,7 +2580,7 @@ function FilterRates(rates, termId){
 //            }
 //        }
     }catch(e){
-    console.log("FilterRates " + e.message);
+    //console.log("FilterRates " + e.message);
     }
     return quoteRate;
 }
@@ -2806,7 +2806,7 @@ function IsLwUpgradeVisibleAndChecked(){
         if($(control).is(":checked"))
             return true;
     }catch(e){
-        console.log("IsLwUpgradeVisibleAndChecked " + e.message);
+        //console.log("IsLwUpgradeVisibleAndChecked " + e.message);
     }
     return false;
 }
